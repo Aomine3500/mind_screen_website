@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mind Screen — Talk. Understand. Feel better.</title>
+  <meta name="description" content="Mind Screen is a voice-powered mental wellness app. Take clinically-validated psychological self-assessments through a natural conversation with an AI assistant. Private, bilingual, and grounded in the tools clinicians use." />
+  <meta name="theme-color" content="#6C5DD3" />
+  <link rel="icon" type="image/png" href="assets/img/icon_app.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- ============================ HEADER ============================ -->
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+      <a href="#top" class="brand" aria-label="Mind Screen home">
+        <img src="assets/img/logo.png" alt="Mind Screen" class="brand-logo" />
+      </a>
+
+      <nav class="main-nav" aria-label="Primary">
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#how" data-i18n="nav.how">How it works</a>
+        <a href="#tests" data-i18n="nav.tests">Assessments</a>
+        <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+        <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button data-lang="en" class="active" aria-pressed="true">EN</button>
+          <button data-lang="fr" aria-pressed="false">FR</button>
+        </div>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+          <svg class="icon-sun" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-13a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V5a1 1 0 0 1 1-1Zm0 15a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1ZM4 12a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1Zm18 0a1 1 0 0 1-1 1h-1a1 1 0 1 1 0-2h1a1 1 0 0 1 1 1ZM5.64 5.64a1 1 0 0 1 1.42 0l.7.7A1 1 0 1 1 6.34 7.76l-.7-.7a1 1 0 0 1 0-1.42Zm11.3 11.3a1 1 0 0 1 1.42 0l.7.7a1 1 0 1 1-1.42 1.42l-.7-.7a1 1 0 0 1 0-1.42Zm1.42-11.3a1 1 0 0 1 0 1.42l-.7.7a1 1 0 1 1-1.42-1.42l.7-.7a1 1 0 0 1 1.42 0ZM7.76 16.94a1 1 0 0 1 0 1.42l-.7.7a1 1 0 0 1-1.42-1.42l.7-.7a1 1 0 0 1 1.42 0Z"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M21.64 13a1 1 0 0 0-1.05-.14 8 8 0 0 1-3.37.73 8.15 8.15 0 0 1-8.14-8.1 8 8 0 0 1 .74-3.4 1 1 0 0 0-1.19-1.36A10.14 10.14 0 1 0 22 14.05a1 1 0 0 0-.36-1.05Z"/></svg>
+        </button>
+        <a href="#get-app" class="btn btn-primary btn-sm nav-cta" data-i18n="nav.cta">Get the app</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <a id="top"></a>
+
+  <!-- ============================ HERO ============================ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+      <span class="pill" data-i18n="hero.badge">✦ Clinically-validated · Voice-powered</span>
+      <h1 class="hero-title">
+        <span data-i18n="hero.title1">Understand your mind through</span>
+        <span class="grad-text" data-i18n="hero.title2">a simple conversation.</span>
+      </h1>
+      <p class="hero-sub" data-i18n="hero.sub">Mind Screen guides you through psychological self-assessments by talking with an intelligent AI assistant — no cold forms, just a natural, private dialogue built on the same tools clinicians use.</p>
+
+      <div class="store-badges" id="get-app">
+        <a href="#" class="store-badge" aria-label="Download on the App Store">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16.5 1.9c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4ZM19.9 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1s-2.5 1-3.9 1c-1.7 0-3-1.7-3.9-3.1-2.6-4-2.9-8.7-1.3-11.2 1.1-1.7 2.9-2.8 4.6-2.8 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.3-3.7 2-3.1 7.3.2 8.9Z"/></svg>
+          <span><small data-i18n="store.on">Download on the</small><strong>App Store</strong></span>
+        </a>
+        <a href="#" class="store-badge" aria-label="Get it on Google Play">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M3.6 2.2c-.2.3-.3.7-.3 1.2v17.2c0 .5.1.9.3 1.2l.1.1L13 12.6v-.2L3.7 2.1l-.1.1Zm12.6 7.1L5.9 3.4l8.3 8.3 2-1.8-.0-.6ZM5.9 20.6l10.3-5.9-2-2-8.3 8v-.1Zm14-9.9-2.5-1.4-2.2 2 2.2 2 2.5-1.4c.7-.4.7-1.4 0-1.8Z"/></svg>
+          <span><small data-i18n="store.get">GET IT ON</small><strong>Google Play</strong></span>
+        </a>
+      </div>
+      <p class="hero-note"><span data-i18n="hero.note">Available on iOS &amp; Android</span></p>
+    </div>
+    <div class="hero-fade" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============================ TRUST STRIP ============================ -->
+  <section class="trust" aria-label="Clinical scales">
+    <div class="container">
+      <p class="trust-label" data-i18n="trust.label">Every assessment is built on internationally recognized clinical instruments</p>
+      <ul class="scale-chips">
+        <li>PHQ-9</li><li>GAD-7</li><li>UCLA</li><li>CBI</li><li>MMSE</li>
+        <li>ASRS</li><li>BPAQ</li><li>AUDIT</li><li>MDQ</li><li>PDSS</li><li>PCL-5</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================ FEATURES ============================ -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="features.eyebrow">Why Mind Screen</span>
+        <h2 data-i18n="features.title">A more human way to check in with yourself</h2>
+      </div>
+      <div class="cards-3">
+        <article class="feature-card reveal">
+          <div class="feature-ic ic-a">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M4 20V10h3v10H4Zm6.5 0V4h3v16h-3ZM17 20v-7h3v7h-3Z"/></svg>
+          </div>
+          <h3 data-i18n="feature1.t">Track your progress</h3>
+          <p data-i18n="feature1.d">See how your scores evolve over time on a clear personal dashboard, so you can notice change and act early.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-ic ic-b">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M12 3a4 4 0 0 1 4 4 4 4 0 0 1-1 2.6A6 6 0 0 1 12 21a6 6 0 0 1-3-11.4A4 4 0 0 1 8 7a4 4 0 0 1 4-4Zm0 6a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg>
+          </div>
+          <h3 data-i18n="feature2.t">Speak, don't fill forms</h3>
+          <p data-i18n="feature2.d">The AI assistant asks each clinical question out loud and listens. Answer in your own words — research shows people are more candid speaking than writing.</p>
+        </article>
+        <article class="feature-card reveal">
+          <div class="feature-ic ic-c">
+            <svg viewBox="0 0 24 24" width="26" height="26"><path fill="currentColor" d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4Zm0 10.9h7c-.5 3.6-3 6.9-7 8V12H5V6.3l7-3.1v8.7Z"/></svg>
+          </div>
+          <h3 data-i18n="feature3.t">Private &amp; confidential</h3>
+          <p data-i18n="feature3.d">Your conversations and results belong to you alone. Sessions run in a secure environment and are never shared with third parties.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ HOW IT WORKS ============================ -->
+  <section class="section how" id="how">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="how.eyebrow">How it works</span>
+        <h2 data-i18n="how.title">From hello to insight in four steps</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal">
+          <span class="step-n">1</span>
+          <h3 data-i18n="how1.t">Choose an assessment</h3>
+          <p data-i18n="how1.d">Pick the area you want to explore — depression, anxiety, burnout, loneliness and more.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-n">2</span>
+          <h3 data-i18n="how2.t">Start the conversation</h3>
+          <p data-i18n="how2.d">The assistant greets you and sets a calm, non-judgmental tone from the first exchange.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-n">3</span>
+          <h3 data-i18n="how3.t">Speak naturally</h3>
+          <p data-i18n="how3.d">It asks the questions of the clinical scale, adapted for spoken dialogue, and listens to you.</p>
+        </div>
+        <div class="step reveal">
+          <span class="step-n">4</span>
+          <h3 data-i18n="how4.t">Receive your results</h3>
+          <p data-i18n="how4.d">Get a clear, interpreted summary of what your responses may indicate — without clinical jargon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TESTS LIBRARY ============================ -->
+  <section class="section tests" id="tests">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="tests.eyebrow">The assessment library</span>
+        <h2 data-i18n="tests.title">Clinically-validated screenings, and growing</h2>
+        <p class="section-lead" data-i18n="tests.lead">Each screening mirrors a recognized clinical instrument. Four are free forever — the full library unlocks with Pro.</p>
+      </div>
+      <div class="tests-grid" id="testsGrid"><!-- injected by JS --></div>
+      <p class="tests-foot" data-i18n="tests.foot">More assessments are added continuously as the library expands.</p>
+    </div>
+  </section>
+
+  <!-- ============================ VOICE SECTION ============================ -->
+  <section class="section voice">
+    <div class="container voice-inner">
+      <div class="voice-visual reveal" aria-hidden="true">
+        <div class="wave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+      <div class="voice-text reveal">
+        <span class="eyebrow" data-i18n="voice.eyebrow">Why voice</span>
+        <h2 data-i18n="voice.title">Because it's easier to open up when you're heard</h2>
+        <p data-i18n="voice.d">Replacing checkbox questionnaires with genuine dialogue lowers the barrier to honest self-reflection. The conversational format mirrors a therapeutic interaction — creating a sense of being heard, not simply measured — without compromising scientific rigor.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ PRIVACY ============================ -->
+  <section class="section privacy" id="privacy">
+    <div class="container privacy-card reveal">
+      <div class="privacy-ic">
+        <svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M12 1 3 5v6c0 5 3.8 9.7 9 11 5.2-1.3 9-6 9-11V5l-9-4Zm-1 15-4-4 1.4-1.4L11 13.2l4.6-4.6L17 10l-6 6Z"/></svg>
+      </div>
+      <div>
+        <h2 data-i18n="privacy.title">Your privacy, always protected</h2>
+        <p data-i18n="privacy.d">Mind Screen is designed with discretion at its core. Conversations and results are confidential and never shared. Everything operates in a secure environment where your data belongs to you alone — any session, any time, wherever you feel comfortable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ TESTIMONIALS ============================ -->
+  <section class="section testimonials">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="testi.eyebrow">Voices</span>
+        <h2 data-i18n="testi.title">People finally feel understood</h2>
+      </div>
+      <div class="cards-3">
+        <figure class="quote reveal">
+          <blockquote data-i18n="testi1.q">"Talking instead of ticking boxes changed everything. I said things out loud I'd never have written down."</blockquote>
+          <figcaption><span class="avatar">TM</span><span data-i18n="testi1.a">Tomás M. · Early user</span></figcaption>
+        </figure>
+        <figure class="quote reveal">
+          <blockquote data-i18n="testi2.q">"The summary was clear and kind — no jargon, no judgment. It helped me take a first step toward care."</blockquote>
+          <figcaption><span class="avatar">SL</span><span data-i18n="testi2.a">Sophie L. · Early user</span></figcaption>
+        </figure>
+        <figure class="quote reveal">
+          <blockquote data-i18n="testi3.q">"Seeing my scores over time made the invisible visible. I noticed the burnout before it took over."</blockquote>
+          <figcaption><span class="avatar">KB</span><span data-i18n="testi3.a">Karim B. · Early user</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ CTA BAND ============================ -->
+  <section class="cta-band">
+    <div class="container cta-inner reveal">
+      <h2 data-i18n="cta.title">Take the first step, today</h2>
+      <p data-i18n="cta.sub">Understand yourself better and make an informed first move toward care.</p>
+      <div class="store-badges">
+        <a href="#" class="store-badge">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16.5 1.9c.1 1-.3 2-1 2.8-.7.8-1.8 1.4-2.8 1.3-.1-1 .4-2 1-2.7.7-.8 1.9-1.4 2.8-1.4ZM19.9 17c-.5 1.2-.8 1.7-1.5 2.8-1 1.5-2.3 3.3-4 3.3-1.5 0-1.9-1-3.9-1s-2.5 1-3.9 1c-1.7 0-3-1.7-3.9-3.1-2.6-4-2.9-8.7-1.3-11.2 1.1-1.7 2.9-2.8 4.6-2.8 1.7 0 2.8 1 4.2 1 1.4 0 2.2-1 4.2-1 1.5 0 3.1.8 4.2 2.3-3.7 2-3.1 7.3.2 8.9Z"/></svg>
+          <span><small data-i18n="store.on">Download on the</small><strong>App Store</strong></span>
+        </a>
+        <a href="#" class="store-badge">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M3.6 2.2c-.2.3-.3.7-.3 1.2v17.2c0 .5.1.9.3 1.2l.1.1L13 12.6v-.2L3.7 2.1l-.1.1Zm12.6 7.1L5.9 3.4l8.3 8.3 2-1.8-.0-.6ZM5.9 20.6l10.3-5.9-2-2-8.3 8v-.1Zm14-9.9-2.5-1.4-2.2 2 2.2 2 2.5-1.4c.7-.4.7-1.4 0-1.8Z"/></svg>
+          <span><small data-i18n="store.get">GET IT ON</small><strong>Google Play</strong></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================ FAQ ============================ -->
+  <section class="section faq" id="faq">
+    <div class="container faq-container">
+      <div class="section-head reveal">
+        <span class="eyebrow" data-i18n="faq.eyebrow">Good to know</span>
+        <h2 data-i18n="faq.title">Frequently asked questions</h2>
+      </div>
+      <div class="faq-list" id="faqList"><!-- injected by JS --></div>
+    </div>
+  </section>
+
+  <!-- ============================ FOOTER ============================ -->
+  <footer class="site-footer">
+    <div class="container footer-top">
+      <div class="footer-brand">
+        <img src="assets/img/logo.png" alt="Mind Screen" class="footer-logo" />
+        <p data-i18n="footer.tagline">Bridging clinical-grade psychological evaluation and everyday accessibility — through the simplicity of a conversation.</p>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4 data-i18n="footer.product">Product</h4>
+          <a href="#features" data-i18n="nav.features">Features</a>
+          <a href="#tests" data-i18n="nav.tests">Assessments</a>
+          <a href="#how" data-i18n="nav.how">How it works</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.company">Company</h4>
+          <a href="#privacy" data-i18n="nav.privacy">Privacy</a>
+          <a href="#faq" data-i18n="nav.faq">FAQ</a>
+          <a href="mailto:contact@mindscreen.app" data-i18n="footer.contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4 data-i18n="footer.legal">Legal</h4>
+          <a href="#" data-i18n="footer.terms">Terms of Use</a>
+          <a href="#" data-i18n="footer.privacyp">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    <div class="container footer-disclaimer">
+      <p data-i18n="footer.disclaimer">⚕️ Mind Screen is a self-awareness and screening tool, not a diagnostic service, and is intended for adults 18+. A result does not constitute a clinical diagnosis. If your results suggest elevated concern or you are experiencing significant distress, please seek support from a qualified mental health professional.</p>
+    </div>
+    <div class="container footer-bottom">
+      <span data-i18n="footer.rights">© 2026 Mind Screen. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#" aria-label="X"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M18.9 2h3.3l-7.2 8.3L23.5 22h-6.6l-5.2-6.8L5.8 22H2.5l7.7-8.8L1.5 2h6.8l4.7 6.2L18.9 2Zm-1.2 18h1.8L7.2 3.9H5.3L17.7 20Z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.9.1 1.2.1 1.8.3 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.1.4.3 1 .4 2.2.1 1.3.1 1.7.1 4.9s0 3.6-.1 4.9c-.1 1.2-.3 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.1-1 .3-2.2.4-1.3.1-1.7.1-4.9.1s-3.6 0-4.9-.1c-1.2-.1-1.8-.3-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.1-.4-.3-1-.4-2.2C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.9c.1-1.2.3-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.1 1-.3 2.2-.4C8.4 2.2 8.8 2.2 12 2.2Zm0 3.2A6.6 6.6 0 1 0 12 18.6 6.6 6.6 0 0 0 12 5.4Zm0 10.9A4.3 4.3 0 1 1 12 7.7a4.3 4.3 0 0 1 0 8.6Zm6.8-11.2a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5a2.5 2.5 0 0 0 0-5ZM3 9h4v12H3V9Zm6 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05C20.4 8.65 21 11 21 14.1V21h-4v-6.1c0-1.46-.03-3.33-2.03-3.33-2.03 0-2.34 1.58-2.34 3.22V21H9V9Z"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
