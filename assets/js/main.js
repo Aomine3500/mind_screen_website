@@ -84,7 +84,12 @@
 
   /* ---------------- Header scroll state ---------------- */
   const header = $("#siteHeader");
-  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 12);
+  const onScroll = () => {
+    const y = window.scrollY;
+    header.classList.toggle("scrolled", y > 12);
+    // Reveal the header CTA only after the hero (and its badges) scroll away.
+    header.classList.toggle("past-hero", y > window.innerHeight * 0.85);
+  };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
