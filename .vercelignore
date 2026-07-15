@@ -1,0 +1,3 @@
+# Fichiers utiles uniquement en local — inutiles sur Vercel (site 100% statique)
+server.js
+README.md

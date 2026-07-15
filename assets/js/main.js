@@ -49,10 +49,8 @@
   function renderTests() {
     const grid = $("#testsGrid");
     if (!grid) return;
-    const badge = lang === "fr" ? I18N.fr : I18N.en;
     grid.innerHTML = TESTS.map((t) => `
       <article class="test-card">
-        <span class="badge ${t.free ? "badge-free" : "badge-pro"}">${t.free ? badge["badge.free"] : badge["badge.pro"]}</span>
         <img src="assets/img/tests/${t.img}" alt="${t[lang]}" loading="lazy" width="96" height="96" />
         <h3>${t[lang]}</h3>
         <span class="test-scale">${t.scale}</span>
