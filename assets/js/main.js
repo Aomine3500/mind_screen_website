@@ -1,14 +1,13 @@
-/* Mind Screen — interactions */
+/* Mind Screen — interactions (English only) */
 (function () {
   "use strict";
   const $  = (s, c = document) => c.querySelector(s);
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
 
-  /* ---------------- Theme ---------------- */
+  /* ---------------- Theme (light is the default) ---------------- */
   const root = document.documentElement;
   const storedTheme = localStorage.getItem("ms-theme");
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-  setTheme(storedTheme || (prefersDark ? "dark" : "light"));
+  setTheme(storedTheme === "dark" || storedTheme === "light" ? storedTheme : "light");
 
   function setTheme(mode) {
     root.setAttribute("data-theme", mode);
@@ -20,41 +19,78 @@
     setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
   });
 
-  /* ---------------- Language ---------------- */
-  let lang = localStorage.getItem("ms-lang") || (navigator.language || "en").slice(0, 2);
-  if (!I18N[lang]) lang = "en";
-
-  function applyLang(l) {
-    lang = I18N[l] ? l : "en";
-    localStorage.setItem("ms-lang", lang);
-    document.documentElement.lang = lang;
-    const dict = I18N[lang];
-    $$("[data-i18n]").forEach((el) => {
-      const key = el.getAttribute("data-i18n");
-      if (dict[key] != null) el.textContent = dict[key];
-    });
-    $$(".lang-switch button").forEach((b) => {
-      const on = b.dataset.lang === lang;
-      b.classList.toggle("active", on);
-      b.setAttribute("aria-pressed", on ? "true" : "false");
-    });
-    renderTests();
-    renderFaq();
-  }
-  $$(".lang-switch button").forEach((b) =>
-    b.addEventListener("click", () => applyLang(b.dataset.lang))
-  );
-
-  /* ---------------- Tests grid ---------------- */
+  /* ---------------- Tests grid (clickable) ---------------- */
   function renderTests() {
     const grid = $("#testsGrid");
     if (!grid) return;
-    grid.innerHTML = TESTS.map((t) => `
-      <article class="test-card">
-        <img src="assets/img/tests/${t.img}" alt="${t[lang]}" loading="lazy" width="96" height="96" />
-        <h3>${t[lang]}</h3>
+    grid.innerHTML = TESTS.map((t, i) => `
+      <button class="test-card" data-test="${i}" aria-haspopup="dialog" aria-label="View details for the ${t.name} assessment">
+        <img src="assets/img/tests/${t.img}" alt="${t.name}" loading="lazy" width="96" height="96" />
+        <h3>${t.name}</h3>
         <span class="test-scale">${t.scale}</span>
-      </article>`).join("");
+        <span class="test-more">Details →</span>
+      </button>`).join("");
+    $$(".test-card", grid).forEach((btn) =>
+      btn.addEventListener("click", () => openModal(TESTS[+btn.dataset.test]))
+    );
+  }
+
+  /* ---------------- Test detail modal ---------------- */
+  const modal = $("#testModal");
+  const modalBody = $("#testModalBody");
+  let lastFocused = null;
+
+  function openModal(t) {
+    lastFocused = document.activeElement;
+    modalBody.innerHTML = `
+      <div class="tm-head">
+        <img class="tm-logo" src="assets/img/tests/${t.img}" alt="${t.name}" width="88" height="88" />
+        <div>
+          <span class="tm-scale">${t.scale}</span>
+          <h3 id="testModalTitle">${t.fullName}</h3>
+          <p class="tm-sub">${t.name} assessment</p>
+        </div>
+      </div>
+      <dl class="tm-meta">
+        <div><dt>Developed by</dt><dd>${t.org}</dd></div>
+        <div><dt>First published</dt><dd>${t.year}</dd></div>
+      </dl>
+      <div class="tm-history">
+        <h4>About this test</h4>
+        <p>${t.history}</p>
+      </div>
+      <div class="tm-stats">
+        <div class="tm-stat">
+          <span class="tm-stat-val">${t.questions}</span>
+          <span class="tm-stat-lbl">Questions</span>
+        </div>
+        <div class="tm-stat">
+          <span class="tm-stat-val">${t.accuracy}</span>
+          <span class="tm-stat-lbl">Accuracy</span>
+        </div>
+      </div>
+      <p class="tm-accnote">${t.accuracyNote}.</p>
+      <p class="tm-disclaimer">Validation figures are approximate, drawn from published studies, and vary with population and cut-off score.</p>
+    `;
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    $(".tm-close", modal).focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+    if (lastFocused) lastFocused.focus();
+  }
+
+  if (modal) {
+    $(".tm-close", modal).addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+    });
   }
 
   /* ---------------- FAQ ---------------- */
@@ -64,10 +100,10 @@
     list.innerHTML = FAQ.map((f) => `
       <div class="faq-item">
         <button class="faq-q" aria-expanded="false">
-          <span>${lang === "fr" ? f.fr_q : f.en_q}</span>
+          <span>${f.q}</span>
           <span class="chev" aria-hidden="true">+</span>
         </button>
-        <div class="faq-a"><p>${lang === "fr" ? f.fr_a : f.en_a}</p></div>
+        <div class="faq-a"><p>${f.a}</p></div>
       </div>`).join("");
     $$(".faq-q", list).forEach((btn) =>
       btn.addEventListener("click", () => {
@@ -85,7 +121,6 @@
   const onScroll = () => {
     const y = window.scrollY;
     header.classList.toggle("scrolled", y > 12);
-    // Reveal the header CTA only after the hero (and its badges) scroll away.
     header.classList.toggle("past-hero", y > window.innerHeight * 0.85);
   };
   window.addEventListener("scroll", onScroll, { passive: true });
@@ -117,6 +152,7 @@
   function observeReveals() { $$(".reveal:not(.in)").forEach((el) => io.observe(el)); }
 
   /* ---------------- Boot ---------------- */
-  applyLang(lang);
+  renderTests();
+  renderFaq();
   observeReveals();
 })();
