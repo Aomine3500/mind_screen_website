@@ -2,15 +2,15 @@
   "hosting": {
     "public": ".",
     "ignore": [
+      "**/.*",
+      "**/.*/**",
+      "**/node_modules/**",
       "firebase.json",
       ".firebaserc",
-      "**/.*",
-      "**/node_modules/**",
-      ".history/**",
       "server.js",
-      "README.md",
       "vercel.json",
-      ".vercelignore"
+      ".vercelignore",
+      "**/*.md"
     ]
   }
 }
