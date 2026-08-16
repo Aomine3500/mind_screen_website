@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "mindsuite-prod",
     "public": ".",
     "ignore": [
       "**/.*",
@@ -11,6 +12,35 @@
       "vercel.json",
       ".vercelignore",
       "**/*.md"
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "headers": [
+      {
+        "//": "Stylesheets, scripts and pages must revalidate on every load. Firebase defaults to max-age=3600, which kept serving a stale legal.css for an hour after deploy and broke the page's colours. ETags make revalidation cheap (304, no body). Images keep a long cache: they are the heavy files and they rarely change.",
+        "source": "**/*.@(css|js)",
+        "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      },
+      {
+        "source": "/",
+        "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      },
+      {
+        "source": "/privacy",
+        "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      },
+      {
+        "source": "/delete-account",
+        "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      },
+      {
+        "source": "/legal",
+        "headers": [{ "key": "Cache-Control", "value": "no-cache" }]
+      },
+      {
+        "source": "/assets/img/**",
+        "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }]
+      }
     ]
   }
 }

@@ -1,0 +1,132 @@
+/* =====================================================================
+   Mind Screen — legal documents (Privacy Policy, Delete account)
+   Loaded after styles.css; reuses its tokens, header, footer and buttons.
+   Document-specific classes are prefixed lg- to avoid clashing with the
+   landing page (.hero and .steps already exist there).
+   ===================================================================== */
+
+.legal-main { padding: 128px 0 24px; }
+
+/* Legal text must never depend on JavaScript to become visible: Play Console
+   reviewers and crawlers would otherwise see an empty page. This neutralises
+   the landing page's scroll-reveal animation inside legal documents. */
+.legal-main .reveal { opacity: 1; transform: none; }
+
+/* ---------- Document head ---------- */
+.legal-head { text-align: center; max-width: 760px; margin: 0 auto 48px; }
+.legal-head h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800;
+  letter-spacing: -1.2px; line-height: 1.12;
+}
+.lg-updated { margin-top: 16px; color: var(--text-sec); font-size: .95rem; }
+
+/* ---------- Document body ---------- */
+.legal-doc {
+  max-width: 860px; margin: 0 auto;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--card-shadow);
+  padding: 56px 56px 48px;
+}
+.legal-doc > *:first-child { margin-top: 0; }
+.legal-doc p { color: var(--text-sec); margin-bottom: 18px; }
+.legal-doc strong { color: var(--text); font-weight: 600; }
+.legal-doc a { color: var(--brand-purple); text-decoration: underline; text-underline-offset: 3px; }
+.legal-doc a:hover { color: var(--brand-blue); }
+.legal-doc a.btn { text-decoration: none; }
+.legal-doc a.btn-primary { color: #fff; }
+.legal-doc a.btn-ghost { color: var(--text); }
+
+.legal-doc h2 {
+  font-size: clamp(1.35rem, 2.6vw, 1.75rem); font-weight: 800;
+  letter-spacing: -.6px; line-height: 1.25;
+  margin: 52px 0 18px; padding-top: 22px; border-top: 1px solid var(--border);
+}
+.legal-doc h2:first-of-type { border-top: none; padding-top: 0; }
+.legal-doc h3 { font-size: 1.1rem; font-weight: 700; margin: 30px 0 10px; }
+
+.legal-doc ul, .legal-doc ol { margin: 0 0 20px 0; padding-left: 22px; color: var(--text-sec); }
+.legal-doc li { margin-bottom: 9px; }
+.legal-doc ul li::marker { color: var(--brand-purple); }
+.legal-doc ol li::marker { color: var(--brand-purple); font-weight: 700; }
+
+.legal-doc code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: .88em; background: var(--field); color: var(--brand-purple);
+  border: 1px solid var(--border); border-radius: 6px; padding: 2px 7px;
+}
+
+/* ---------- Numbered walkthrough ---------- */
+.lg-steps { list-style: none; padding: 0; margin: 0 0 24px; counter-reset: lgstep; }
+.lg-steps li {
+  counter-increment: lgstep; position: relative;
+  padding: 0 0 0 46px; margin-bottom: 16px; color: var(--text-sec);
+}
+.lg-steps li::before {
+  content: counter(lgstep); position: absolute; left: 0; top: -1px;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: var(--grad); color: #fff;
+  font-size: 14px; font-weight: 700;
+  display: grid; place-items: center;
+}
+
+/* ---------- Callout cards ---------- */
+.lg-card {
+  background: var(--field); border: 1px solid var(--border);
+  border-left: 3px solid var(--brand-purple);
+  border-radius: 14px; padding: 22px 26px; margin: 26px 0;
+}
+.lg-card p:last-child { margin-bottom: 0; }
+.lg-card.warn { border-left-color: #E5484D; background: rgba(229, 72, 77, .07); }
+.lg-card h3 { margin-top: 0; }
+
+.lg-muted { font-size: .92rem; color: var(--text-sec); }
+
+/* ---------- Tables ---------- */
+.table-scroll {
+  overflow-x: auto; margin: 22px 0 28px;
+  border: 1px solid var(--border); border-radius: 14px;
+}
+.legal-doc table { width: 100%; border-collapse: collapse; font-size: .94rem; min-width: 520px; }
+.legal-doc th, .legal-doc td {
+  text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.legal-doc thead th {
+  background: var(--surface-var); color: var(--text);
+  font-size: .78rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+}
+.legal-doc td { color: var(--text-sec); }
+.legal-doc tbody tr:last-child td { border-bottom: none; }
+
+/* ---------- Back to the site ---------- */
+.lg-back {
+  margin-top: 48px; padding-top: 32px; border-top: 1px solid var(--border);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 14px;
+}
+.lg-back .lg-back-note { color: var(--text-sec); font-size: .92rem; margin: 0; }
+.btn-ghost {
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--border); text-decoration: none;
+}
+.btn-ghost:hover { border-color: var(--brand-purple); color: var(--brand-purple); transform: translateY(-2px); }
+
+/* ---------- Legal index cards ---------- */
+.lg-index { display: grid; gap: 20px; max-width: 860px; margin: 32px auto 28px; }
+.lg-index-card {
+  display: block; background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 30px 32px; box-shadow: var(--card-shadow);
+  text-decoration: none !important; transition: transform .25s ease, border-color .25s;
+}
+.lg-index-card:hover { transform: translateY(-3px); border-color: var(--brand-purple); }
+.lg-index-card h2 { font-size: 1.3rem; font-weight: 800; margin: 0 0 8px; color: var(--text); }
+.lg-index-card p { margin: 0; color: var(--text-sec); font-size: .96rem; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .legal-main { padding-top: 108px; }
+  .legal-doc { padding: 34px 22px 30px; border-radius: 16px; }
+  .legal-doc h2 { margin-top: 40px; }
+  .lg-card { padding: 18px 20px; }
+  .lg-back { flex-direction: column; align-items: flex-start; }
+}
