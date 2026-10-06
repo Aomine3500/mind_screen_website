@@ -151,8 +151,8 @@
   );
   function observeReveals() { $$(".reveal:not(.in)").forEach((el) => io.observe(el)); }
 
-  /* ---------------- Store badges — "coming soon" notice ---------------- */
-  const storeBadges = $$(".store-badge");
+  /* ---------------- App Store badge — "coming soon" notice (Google Play links straight to the store) ---------------- */
+  const storeBadges = $$(".store-badge-soon");
   if (storeBadges.length) {
     let toast, toastTimer;
 
@@ -168,7 +168,7 @@
         </span>
         <div class="app-toast-text">
           <strong>Coming soon</strong>
-          <span>Mind Screen is currently in its testing phase and will be available soon on the App Store and Google Play. Thank you for your patience!</span>
+          <span>Mind Screen is currently in its testing phase and will be available soon on the App Store. Thank you for your patience!</span>
         </div>
         <button class="app-toast-close" type="button" aria-label="Dismiss">
           <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M18.3 5.71 12 12l6.3 6.29-1.42 1.42L10.59 13.4 5.71 18.3 4.3 16.88 10.59 12 4.3 5.71 5.71 4.3l4.88 4.88L16.88 4.3z"/></svg>
